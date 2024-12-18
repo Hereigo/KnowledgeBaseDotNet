@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class CsvProfile
+public class Csv01Profile
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string ID { get; set; }

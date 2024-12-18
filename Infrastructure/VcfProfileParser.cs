@@ -3,26 +3,6 @@ using System.Text;
 using System.Text.Json;
 using System.Web;
 
-public class VCard
-{
-    public DateTime Created { get; set; }
-    public string Categories { get; set; }
-    public string FileUploaded { get; set; }
-    public string FullName { get; set; }
-    public string Group { get; set; }
-    public string Name { get; set; }
-    public string PhoneNumber { get; set; }
-    public string PhoneNumber2 { get; set; }
-    public string PhotoFileName { get; set; }
-    public string Version { get; set; }
-    // 4794069441-HLT
-    // 0689012345
-    // 380672465888
-    // Pennsylvania65000
-    // 12345678901234567
-    // 9223372036854775807 Type-Long
-}
-
 public static class VcfProfileParser
 {
     public static void TestVcfParsing(string vcfFilePath, string imagesSavePath)
@@ -40,9 +20,9 @@ public static class VcfProfileParser
         }
     }
 
-    public static List<VCard> ParseVcfFile(string vcfFilePath, string imagesSavePath)
+    public static List<Vcf01Profile> ParseVcfFile(string vcfFilePath, string imagesSavePath)
     {
-        var vCards = new List<VCard>();
+        var vCards = new List<Vcf01Profile>();
 
         if (File.Exists(vcfFilePath))
         {
@@ -51,7 +31,7 @@ public static class VcfProfileParser
             using (var fileStream = File.OpenRead(vcfFilePath))
             using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true))
             {
-                VCard vCard = null;
+                Vcf01Profile vCard = null;
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
                 {
@@ -62,7 +42,7 @@ public static class VcfProfileParser
 
                     if (line.StartsWith("BEGIN:VCARD"))
                     {
-                        vCard = new VCard();
+                        vCard = new Vcf01Profile();
                     }
                     else if (line.StartsWith("END:VCARD"))
                     {
@@ -95,18 +75,16 @@ public static class VcfProfileParser
                     }
                     else if (line.StartsWith("PHOTO;ENCODING=BASE64;JPEG:") || line.StartsWith("NOTE:Photo:"))
                     {
-                        int colonIndex = line.IndexOf(':');
+                        int prefixColonIndex = line.IndexOf(':');
+                        if (prefixColonIndex == -1) { throw new Exception("ERROR parsing Photo string!"); }
 
-                        if (colonIndex == -1) { throw new Exception("ERROR parsing Photo string!"); }
-
-                        string base64image = line.Substring(colonIndex + 1);
-
+                        string base64image = line.Substring(prefixColonIndex + 1);
                         while (!string.IsNullOrWhiteSpace(line = streamReader.ReadLine())) base64image += line;
 
                         try
                         {
                             byte[] imageBytes = Convert.FromBase64String(base64image);
-                            string guidImageName = Guid.NewGuid() + ".jpg";
+                            string guidImageName = Guid.NewGuid() + ".jpg;";
 
                             using (MemoryStream ms = new MemoryStream(imageBytes))
                             {

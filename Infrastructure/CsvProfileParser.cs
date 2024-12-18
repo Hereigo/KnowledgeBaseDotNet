@@ -11,7 +11,7 @@ public class CsvProfileParser
     {
         try
         {
-            List<CsvProfile> vCards = ParseCsv(fileVcfPath);
+            List<Csv01Profile> vCards = ParseCsv(fileVcfPath);
 
             string json = JsonSerializer.Serialize(vCards);
 
@@ -29,7 +29,7 @@ public class CsvProfileParser
     // https://joshclose.github.io/CsvHelper/examples/reading/
 
 
-    public static List<CsvProfile> ParseCsv(string filePath)
+    public static List<Csv01Profile> ParseCsv(string filePath)
     {
         //using (var reader = new StreamReader(filePath))
         //using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -48,7 +48,7 @@ public class CsvProfileParser
         //    return csv.GetRecords<CsvProfile>().ToList();
         //}
 
-        var contacts = new List<CsvProfile>();
+        var contacts = new List<Csv01Profile>();
 
         using (var reader = new StreamReader(filePath))
         using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))
@@ -59,7 +59,7 @@ public class CsvProfileParser
 
             foreach (var record in records)
             {
-                var contact = new CsvProfile();
+                var contact = new Csv01Profile();
 
                 foreach (var property in record)
                 {
@@ -69,7 +69,7 @@ public class CsvProfileParser
                     // Use reflection to set properties dynamically
                     //var propInfo = typeof(CsvProfile).GetProperty(propertyName, (BindingFlags)StringComparison.OrdinalIgnoreCase);
 
-                    var propInfo = typeof(CsvProfile).GetProperties().FirstOrDefault(p =>
+                    var propInfo = typeof(Csv01Profile).GetProperties().FirstOrDefault(p =>
                             string.Equals(p.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName, propertyName, StringComparison.OrdinalIgnoreCase));
 
                     if (propInfo != null && value != null)

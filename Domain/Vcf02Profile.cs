@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public class VcfProfile
+public class Vcf02Profile
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string ID { get; set; }
