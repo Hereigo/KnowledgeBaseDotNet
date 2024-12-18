@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
-namespace ApplicationData
+
+public class AppDbContext : DbContext
 {
-    internal class AppDbContext
+    public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
     {
     }
+
+    public DbSet<CsvProfile> Categories { get; set; }
 }

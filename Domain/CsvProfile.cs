@@ -270,8 +270,8 @@ public class CsvProfile
     [DisplayName("Website 1 - Value")]
     public string Website1Value { get; set; }
 
-    [Column("Website2Value")]
-    [DisplayName("Website 2 - Value")]
+    [Column("Website2Type")]
+    [DisplayName("Website 2 - Type")]
     public string Website2Type { get; set; }
 
     [Column("Website2Value")]
