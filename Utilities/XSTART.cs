@@ -25,7 +25,7 @@ switch (yourSelect)
         main.CreateDatabase(workDir);
         break;
     case 2:
-        VcfProfileParser.TestVcfParsing(fileVcf, workDirTemp);
+        // VcfProfileParser.TestVcfParsing(fileVcf, workDirTemp);
         break;
     case 3:
         CsvProfileParser.TestCsvParsing(fileCsv, workDirTemp);

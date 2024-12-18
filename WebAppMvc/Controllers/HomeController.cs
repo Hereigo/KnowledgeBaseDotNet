@@ -18,6 +18,11 @@ namespace WebAppMvc.Controllers
             return View();
         }
 
+        public IActionResult UploadFileType()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

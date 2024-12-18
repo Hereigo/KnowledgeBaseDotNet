@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-public static class Cryptonic
+public static class DbCreator
 {
     public static void GenerateAESKey(string keyFilePath)
     {

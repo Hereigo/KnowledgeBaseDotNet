@@ -2,7 +2,49 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    form span {
+        margin-left:1rem;
+    }
+</style>
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div class="row">
+        <div class="mt-4 row justify-content-center">
+            <div class="list-group col-6">
+
+                <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadFile">
+                    <div class="mb-2">
+
+                        <label>Select Uploading File Type:</label>
+
+                        <span>
+                            <input type="radio" value="Csv01" id="Csv01" />
+                            <label for="Csv01">Csv01</label>
+                        </span>
+                        <span>
+                            <input type="radio" value="Vcf01" id="Vcf01" />
+                            <label for="Vcf01">Vcf01</label>
+                        </span>
+                        <span>
+                            <input type="radio" value="Vcf02" id="Vcf02" />
+                            <label for="Vcf02">Vcf02</label>
+                        </span>
+                        <br /><br />
+
+                        <input id="fileToUpload" name="fileToUpload" type="file" class="form-control" />
+
+                    </div>
+                    <div class="mb-2">
+                        <button class="btn btn-primary">Upload</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
 </div>

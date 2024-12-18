@@ -38,7 +38,7 @@ namespace Utilities
 
         internal void CreateDatabase(string mainPath)
         {
-            string _dabaseFile = Path.Combine(mainPath, "workFolder\\TestDb24.dat");
+            string _dabaseFile = Path.Combine(mainPath, "workFolder\\KBData.db");
             string _lockedFile = Path.Combine(mainPath, "Tests.aaa");
             string _packedFile = Path.Combine(mainPath, "Tests.pax");
             string _workFolder = Path.Combine(mainPath, "workFolder\\");
@@ -60,7 +60,7 @@ namespace Utilities
                         }
 
                         if (File.Exists(_packedFile))
-                            Cryptonic.EncryptByPass(_packedFile, _lockedFile, blablatest);
+                            DbCreator.EncryptByPass(_packedFile, _lockedFile, blablatest);
 
                         if (File.Exists(_lockedFile))
                         {
@@ -74,7 +74,7 @@ namespace Utilities
                 {
                     if (!SkipAction(true))
                     {
-                        Cryptonic.DecryptByPass(_lockedFile, _packedFile, blablatest);
+                        DbCreator.DecryptByPass(_lockedFile, _packedFile, blablatest);
 
                         if (File.Exists(_packedFile))
                             ZipFile.ExtractToDirectory(_packedFile, mainPath);
