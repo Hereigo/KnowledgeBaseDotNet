@@ -1,5 +1,9 @@
-﻿public class Profile
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+public class VcfProfile
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public string ID { get; set; }
     public string ProfileID { get; set; }
     public string AaaType { get; set; }
     public string Name { get; set; }

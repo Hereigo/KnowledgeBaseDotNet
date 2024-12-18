@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 
 public class AppDbContext : DbContext
@@ -13,5 +8,7 @@ public class AppDbContext : DbContext
     {
     }
 
-    public DbSet<CsvProfile> Categories { get; set; }
+    public DbSet<CsvProfile> CsvProfiles { get; set; }
+    public DbSet<VcfProfile> VcfProfiles { get; set; }
+
 }
