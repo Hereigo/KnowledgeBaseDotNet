@@ -28,7 +28,7 @@ switch (yourSelect)
         // VcfProfileParser.TestVcfParsing(fileVcf, workDirTemp);
         break;
     case 3:
-        CsvProfileParser.TestCsvParsing(fileCsv, workDirTemp);
+        Csv01ProfileParser.TestCsvParsing(fileCsv, workDirTemp);
         break;
     default:
         // TEMP TESTING BLOCK ...

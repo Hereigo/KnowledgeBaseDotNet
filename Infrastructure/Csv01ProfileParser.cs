@@ -5,7 +5,7 @@ using System.Text.Json;
 using CsvHelper;
 using CsvHelper.Configuration;
 
-public class CsvProfileParser
+public class Csv01ProfileParser
 {
     public static void TestCsvParsing(string fileVcfPath, string workDir)
     {

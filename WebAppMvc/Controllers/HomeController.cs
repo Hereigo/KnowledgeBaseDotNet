@@ -18,36 +18,37 @@ namespace WebAppMvc.Controllers
             return View();
         }
 
-
-        public class FileUploadModel
-        {
-            public IFormFile File { get; set; }
-            public string UploadFileType { get; set; }
-        }
-
         [HttpPost]
-        public IActionResult UploadFile(IFormFile fileToUpload, string UploadFileType)
+        public async Task<IActionResult> UploadFile(IFormFile fileToUpload, string uploadFileType)
         {
-            if (fileToUpload != null && fileToUpload.Length > 0)
+            if (fileToUpload == null || fileToUpload.Length < 1 || string.IsNullOrWhiteSpace(uploadFileType))
             {
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileToUpload.FileName);
-
-                var directory = Path.GetDirectoryName(filePath);
-                if (!Directory.Exists(directory))
-                {
-                    Directory.CreateDirectory(directory);
-                }
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    fileToUpload.CopyToAsync(stream);
-                }
-
-                return Ok(new { message = $"{UploadFileType} File uploaded to {filePath}" });
+                return BadRequest("No file uploaded or file-type not selected.");
             }
             else
             {
-                return BadRequest("No file uploaded.");
+                try
+                {
+                    string FileNameOnServer = Path.GetTempPath();
+                    FileNameOnServer += fileToUpload.FileName;
+
+                    long FileContentLength = fileToUpload.Length; // bytes
+                    string FileContentType = fileToUpload.ContentType;
+
+                    using var stream = System.IO.File.Create(FileNameOnServer);
+                    fileToUpload.CopyTo(stream);
+
+                    // TODO
+                    // upload into DB here ..........................
+
+                    // FileNameOnServer
+
+                    return Ok(new { message = $"File uploaded to succesfully." });
+                }
+                catch (Exception)
+                {
+                    throw new Exception();
+                }
             }
         }
 

@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.Json;
 using System.Web;
 
-public static class VcfProfileParser
+public static class Vcf01ProfileParser
 {
     //public static void TestVcfParsing(string vcfFilePath, string imagesSavePath)
     //{
