@@ -18,9 +18,37 @@ namespace WebAppMvc.Controllers
             return View();
         }
 
-        public IActionResult UploadFileType()
+
+        public class FileUploadModel
         {
-            return View();
+            public IFormFile File { get; set; }
+            public string UploadFileType { get; set; }
+        }
+
+        [HttpPost]
+        public IActionResult UploadFile(IFormFile fileToUpload, string UploadFileType)
+        {
+            if (fileToUpload != null && fileToUpload.Length > 0)
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileToUpload.FileName);
+
+                var directory = Path.GetDirectoryName(filePath);
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    fileToUpload.CopyToAsync(stream);
+                }
+
+                return Ok(new { message = $"{UploadFileType} File uploaded to {filePath}" });
+            }
+            else
+            {
+                return BadRequest("No file uploaded.");
+            }
         }
 
         public IActionResult Privacy()

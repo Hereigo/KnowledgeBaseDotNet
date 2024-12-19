@@ -4,7 +4,7 @@
 
 <style>
     form span {
-        margin-left:1rem;
+        margin-left: 1rem;
     }
 </style>
 
@@ -16,30 +16,27 @@
         <div class="mt-4 row justify-content-center">
             <div class="list-group col-6">
 
-                <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadFile">
+                <form method="POST" enctype="multipart/form-data" asp-controller="Home" asp-action="UploadFile">
                     <div class="mb-2">
-
-                        <label>Select Uploading File Type:</label>
-
+                        <label>Select File Type:</label>
                         <span>
-                            <input type="radio" value="Csv01" id="Csv01" />
+                            <input type="radio" value="Csv01" id="Csv01" name="UploadFileType" />
                             <label for="Csv01">Csv01</label>
                         </span>
                         <span>
-                            <input type="radio" value="Vcf01" id="Vcf01" />
+                            <input type="radio" value="Vcf01" id="Vcf01" name="UploadFileType" />
                             <label for="Vcf01">Vcf01</label>
                         </span>
                         <span>
-                            <input type="radio" value="Vcf02" id="Vcf02" />
+                            <input type="radio" value="Vcf02" id="Vcf02" name="UploadFileType" />
                             <label for="Vcf02">Vcf02</label>
                         </span>
-                        <br /><br />
-
+                        <br />
+                        <br />
                         <input id="fileToUpload" name="fileToUpload" type="file" class="form-control" />
-
                     </div>
                     <div class="mb-2">
-                        <button class="btn btn-primary">Upload</button>
+                        <input type="submit" class="btn btn-primary" value="Upload" />
                     </div>
                 </form>
 
