@@ -7,7 +7,7 @@ using CsvHelper.Configuration;
 
 public class Csv01ProfileParser
 {
-    public static void TestCsvParsing(string fileVcfPath, string workDir)
+    public static void CsvParseToFolder(string fileVcfPath, string outputDir)
     {
         try
         {
@@ -15,19 +15,15 @@ public class Csv01ProfileParser
 
             string json = JsonSerializer.Serialize(vCards);
 
-            File.WriteAllText(Path.Combine(workDir, DateTime.Now.ToString("yyMMddHHmmss") + ".json"), json);
+            File.WriteAllText(Path.Combine(outputDir, DateTime.Now.ToString("yyMMddHHmmss") + ".json"), json);
 
-            Console.WriteLine("Json saved to - " + workDir);
+            Console.WriteLine("Json saved to - " + outputDir);
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
     }
-
-
-    // https://joshclose.github.io/CsvHelper/examples/reading/
-
 
     public static List<Csv01Profile> ParseCsv(string filePath)
     {

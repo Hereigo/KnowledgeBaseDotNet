@@ -1,5 +1,4 @@
-﻿
-public enum ProfilesTypes
+﻿public enum ProfilesTypes
 {
     Csv01,
     Csv02,

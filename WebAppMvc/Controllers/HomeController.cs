@@ -21,9 +21,13 @@ namespace WebAppMvc.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadFile(IFormFile fileToUpload, string uploadFileType)
         {
-            if (fileToUpload == null || fileToUpload.Length < 1 || string.IsNullOrWhiteSpace(uploadFileType))
+            if (fileToUpload == null || fileToUpload.Length < 1)
             {
-                return BadRequest("No file uploaded or file-type not selected.");
+                return BadRequest("No file uploaded.");
+            }
+            else if (string.IsNullOrWhiteSpace(uploadFileType) || !Enum.TryParse(uploadFileType, true, out ProfilesTypes profileType))
+            {
+                return BadRequest("No file-type selected.");
             }
             else
             {
@@ -38,12 +42,10 @@ namespace WebAppMvc.Controllers
                     using var stream = System.IO.File.Create(FileNameOnServer);
                     fileToUpload.CopyTo(stream);
 
-                    // TODO
-                    // upload into DB here ..........................
+                    var profileParser = new ProfileParser();
+                    var result = await profileParser.ParseUploadedProfileAsync(FileNameOnServer, profileType);
 
-                    // FileNameOnServer
-
-                    return Ok(new { message = $"File uploaded to succesfully." });
+                    return Ok(new { message = $"File uploaded to succesfully. - {result}" });
                 }
                 catch (Exception)
                 {

@@ -1,8 +1,9 @@
 ﻿using System.Text.RegularExpressions;
+using Infrastructure;
 using Utilities;
 
 int yourSelect = 0;
-string workDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "EOS", "Tests");
+string workDir = Constants.aWorkDir;
 string workDirTemp = Path.Combine(workDir, "VCF_TEST");
 string fileVcf = Path.Combine(workDirTemp, "20240813.vcf");
 string fileCsv = Path.Combine(workDirTemp, "GmaExpo_contacts.csv");
@@ -22,13 +23,13 @@ switch (yourSelect)
 {
     case 1:
         var main = new FileWorker();
-        main.CreateDatabase(workDir);
+        main.CreateDatabase();
         break;
     case 2:
         // VcfProfileParser.TestVcfParsing(fileVcf, workDirTemp);
         break;
     case 3:
-        Csv01ProfileParser.TestCsvParsing(fileCsv, workDirTemp);
+        Csv01ProfileParser.CsvParseToFolder(fileCsv, workDirTemp);
         break;
     default:
         // TEMP TESTING BLOCK ...

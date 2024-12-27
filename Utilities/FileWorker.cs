@@ -1,4 +1,5 @@
 ﻿using System.IO.Compression;
+using Infrastructure;
 using Microsoft.VisualBasic.FileIO;
 
 namespace Utilities
@@ -9,8 +10,7 @@ namespace Utilities
 
         bool isDbFileExists(string dbFile)
         {
-            return
-                File.Exists(dbFile) && new FileInfo(dbFile).Length > 0;
+            return File.Exists(dbFile) && new FileInfo(dbFile).Length > 0;
         }
 
         bool SkipAction(bool isStart)
@@ -36,51 +36,51 @@ namespace Utilities
             return isWrong;
         }
 
-        internal void CreateDatabase(string mainPath)
+        internal void CreateDatabase() // string mainPath)
         {
-            string _dabaseFile = Path.Combine(mainPath, "workFolder\\KBData.db");
-            string _lockedFile = Path.Combine(mainPath, "Tests.aaa");
-            string _packedFile = Path.Combine(mainPath, "Tests.pax");
-            string _workFolder = Path.Combine(mainPath, "workFolder\\");
+            var dtbaseFile = Constants.dtbaseFile;
+            var lockedfile = Constants.lockedFile;
+            var packedFile = Constants.packedFile;
+            var workFolder = Constants.workFolder;
             try
             {
-                if (isDbFileExists(_dabaseFile))
+                if (isDbFileExists(dtbaseFile))
                 {
                     if (!SkipAction(false))
                     {
-                        string lockedFileBkp = $"{_lockedFile}.B4.{DateTime.Now:ddHHmmss}";
+                        string lockedFileBkp = $"{lockedfile}.B4.{DateTime.Now:ddHHmmss}";
 
-                        if (File.Exists(_lockedFile))
-                            File.Copy(_lockedFile, lockedFileBkp, true);
+                        if (File.Exists(lockedfile))
+                            File.Copy(lockedfile, lockedFileBkp, true);
 
                         if (File.Exists(lockedFileBkp))
                         {
-                            FileSystem.DeleteFile(_lockedFile, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
-                            ZipFile.CreateFromDirectory(_workFolder, _packedFile, CompressionLevel.SmallestSize, true);
+                            FileSystem.DeleteFile(lockedfile, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+                            ZipFile.CreateFromDirectory(workFolder, packedFile, CompressionLevel.SmallestSize, true);
                         }
 
-                        if (File.Exists(_packedFile))
-                            DbCreator.EncryptByPass(_packedFile, _lockedFile, blablatest);
+                        if (File.Exists(packedFile))
+                            DbCreator.EncryptByPass(packedFile, lockedfile, blablatest);
 
-                        if (File.Exists(_lockedFile))
+                        if (File.Exists(lockedfile))
                         {
-                            Directory.Delete(_workFolder, true);
-                            File.Delete(_packedFile);
+                            Directory.Delete(workFolder, true);
+                            File.Delete(packedFile);
                         }
                         Console.WriteLine("\r\n Successfully Finished.");
                     }
                 }
-                else if (!Directory.Exists(_workFolder) && !isDbFileExists(_dabaseFile))
+                else if (!Directory.Exists(workFolder) && !isDbFileExists(dtbaseFile))
                 {
                     if (!SkipAction(true))
                     {
-                        DbCreator.DecryptByPass(_lockedFile, _packedFile, blablatest);
+                        DbCreator.DecryptByPass(lockedfile, packedFile, blablatest);
 
-                        if (File.Exists(_packedFile))
-                            ZipFile.ExtractToDirectory(_packedFile, mainPath);
+                        if (File.Exists(packedFile))
+                            ZipFile.ExtractToDirectory(packedFile, Constants.aWorkDir);
 
-                        if (isDbFileExists(_dabaseFile))
-                            File.Delete(_packedFile);
+                        if (isDbFileExists(dtbaseFile))
+                            File.Delete(packedFile);
 
                         Console.WriteLine("\r\n Successfully Prepaired For Work.");
                     }

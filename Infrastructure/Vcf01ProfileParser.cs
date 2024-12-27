@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 using System.Text;
-using System.Text.Json;
 using System.Web;
 
 public static class Vcf01ProfileParser
@@ -20,9 +19,9 @@ public static class Vcf01ProfileParser
     //    }
     //}
 
-    public static List<Vcf01Profile> ParseVcfFile(string vcfFilePath, string imagesSavePath)
+    public static List<Csv01Profile> ParseVcfFile(string vcfFilePath, string imagesSavePath)
     {
-        var vCards = new List<Vcf01Profile>();
+        var vCards = new List<Csv01Profile>();
 
         try
         {
@@ -33,18 +32,18 @@ public static class Vcf01ProfileParser
                 using (var fileStream = File.OpenRead(vcfFilePath))
                 using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true))
                 {
-                    Vcf01Profile vCard = null;
+                    Csv01Profile vCard = null;
                     string line;
                     while ((line = streamReader.ReadLine()) != null)
                     {
                         // TODO:
                         // check valid begin and end of Cards !!!
 
-                        // is for VERSION:2.1
+                        // Tested for - VERSION:2.1
 
                         if (line.StartsWith("BEGIN:VCARD"))
                         {
-                            vCard = new Vcf01Profile();
+                            vCard = new Csv01Profile();
                         }
                         else if (line.StartsWith("END:VCARD"))
                         {
@@ -55,8 +54,8 @@ public static class Vcf01ProfileParser
                         else if (line.StartsWith("N:")) vCard.Name += "," + line.Substring("N:".Length).TrimStart(',');
                         else if (line.StartsWith("FN:")) vCard.FullName += "," + line.Substring("FN:".Length).TrimStart(',');
                         else if (line.StartsWith("CATEGORIES:")) vCard.Categories += "," + line.Substring("CATEGORIES:".Length).TrimStart(',');
-                        else if (line.StartsWith("TEL;CELL:")) vCard.PhoneNumber += "," + line.Substring("TEL;CELL:".Length).TrimStart(',');
-                        else if (line.StartsWith("TEL;TYPE=CELL:")) vCard.PhoneNumber2 += "," + line.Substring("TEL;TYPE=CELL:".Length).TrimStart(',');
+                        else if (line.StartsWith("TEL;CELL:")) vCard.Phone1Value += "," + line.Substring("TEL;CELL:".Length).TrimStart(',');
+                        else if (line.StartsWith("TEL;TYPE=CELL:")) vCard.Phone2Value += "," + line.Substring("TEL;TYPE=CELL:".Length).TrimStart(',');
                         else if (line.StartsWith("VERSION:")) vCard.Version += "," + line.Substring("VERSION:".Length).TrimStart(',');
                         else if (line.StartsWith("X-GROUP:")) vCard.Group += "," + line.Substring("X-GROUP:".Length).TrimStart(',');
                         else if (line.StartsWith("N;CHARSET=UTF-8;ENCODING=QUOTED-PRINTABLE:"))
