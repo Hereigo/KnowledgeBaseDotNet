@@ -1,22 +1,65 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+    /****** CUSTOMIZATION ******/
+
+    body > div.container {
+        margin-left: .2rem;
+    }
+
+.bi-wrapper {
+    text-decoration: none;
+}
+
+th:first-child {
+    min-width: 6rem;
+}
+
+input {
+    margin-bottom: .5rem;
+}
+
+#blablatest {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 15rem;
+}
+
+#homeLoader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: homeLoader 2s linear infinite;
+}
+
+@keyframes homeLoader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

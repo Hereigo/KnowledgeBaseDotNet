@@ -7,7 +7,7 @@
         switch (profileType)
         {
             case ProfilesTypes.Csv01:
-                List<Csv01Profile> newProfiles = Csv01ProfileParser.ParseCsv(fileNameOnServer);
+                List<Profile> newProfiles = Csv01ProfileParser.ParseCsv(fileNameOnServer);
 
                 // TODO:
                 // SAVE TO DB !!!!!!!!!!

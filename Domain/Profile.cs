@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Csv01Profile
+public class Profile
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string ID { get; set; }
+
     public string AaaType { get; set; }
     public DateTime Created { get; set; }
 
@@ -280,33 +281,25 @@ public class Csv01Profile
     [DisplayName("Website 2 - Value")]
     public string Website2Value { get; set; }
 
+    public string Categories { get; set; }
+
     public string CustomField1Type { get; set; }
-
+    
     public string CustomField1Value { get; set; }
-
+    
     public string Event1Type { get; set; }
     
     public string Event1Value { get; set; }
-
-    public string ProfileID { get; set; }
-
-
-
     
-
-    public string Categories { get; set; }
-
     public string FileUploaded { get; set; }
-
+    
     public string FullName { get; set; }
     
     public string Group { get; set; }
     
-    // public string Name { get; set; }
-    // public string PhoneNumber { get; set; }
-    // public string PhoneNumber2 { get; set; }
-    
     public string PhotoFileName { get; set; }
+    
+    public string ProfileID { get; set; }
     
     public string Version { get; set; }
 }
