@@ -19,9 +19,9 @@ public static class Vcf01ProfileParser
     //    }
     //}
 
-    public static List<Profile> ParseVcfFile(string vcfFilePath, string imagesSavePath)
+    public static List<FullProfile> ParseVcfFile(string vcfFilePath, string imagesSavePath)
     {
-        var vCards = new List<Profile>();
+        var vCards = new List<FullProfile>();
 
         try
         {
@@ -32,7 +32,7 @@ public static class Vcf01ProfileParser
                 using (var fileStream = File.OpenRead(vcfFilePath))
                 using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true))
                 {
-                    Profile vCard = null;
+                    FullProfile vCard = null;
                     string line;
                     while ((line = streamReader.ReadLine()) != null)
                     {
@@ -43,7 +43,7 @@ public static class Vcf01ProfileParser
 
                         if (line.StartsWith("BEGIN:VCARD"))
                         {
-                            vCard = new Profile();
+                            vCard = new FullProfile();
                         }
                         else if (line.StartsWith("END:VCARD"))
                         {

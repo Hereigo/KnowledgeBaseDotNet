@@ -1,19 +1,14 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Profile
+public class ProfileCsv1
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public string ID { get; set; }
-
-    public string AaaType { get; set; }
-    public DateTime Created { get; set; }
-
     [Column("Name")]
     [DisplayName("Name")]
     public string Name { get; set; }
 
-    [Column("GivenName")]
+    [Column("Given Name")]
     [DisplayName("Given Name")]
     public string GivenName { get; set; }
 
@@ -280,26 +275,77 @@ public class Profile
     [Column("Website2Value")]
     [DisplayName("Website 2 - Value")]
     public string Website2Value { get; set; }
-
-    public string Categories { get; set; }
-
-    public string CustomField1Type { get; set; }
-    
-    public string CustomField1Value { get; set; }
-    
-    public string Event1Type { get; set; }
-    
-    public string Event1Value { get; set; }
-    
-    public string FileUploaded { get; set; }
-    
-    public string FullName { get; set; }
-    
-    public string Group { get; set; }
-    
-    public string PhotoFileName { get; set; }
-    
-    public string ProfileID { get; set; }
-    
-    public string Version { get; set; }
 }
+
+
+//CsvHelper.HeaderValidationException: 'Header with name 'ID'[0] was not found.
+//Header with name 'GivenName'[0] was not found.
+//Header with name 'AdditionalName'[0] was not found.
+//Header with name 'FamilyName'[0] was not found.
+//Header with name 'YomiName'[0] was not found.
+//Header with name 'GivenNameYomi'[0] was not found.
+//Header with name 'AdditionalNameYomi'[0] was not found.
+//Header with name 'FamilyNameYomi'[0] was not found.
+//Header with name 'NamePrefix'[0] was not found.
+//Header with name 'NameSuffix'[0] was not found.
+//Header with name 'ShortName'[0] was not found.
+//Header with name 'MaidenName'[0] was not found.
+//Header with name 'BillingInformation'[0] was not found.
+//Header with name 'DirectoryServer'[0] was not found.
+//Header with name 'GroupMembership'[0] was not found.
+//Header with name 'Email1Type'[0] was not found.
+//Header with name 'Email1Value'[0] was not found.
+//Header with name 'Email2Type'[0] was not found.
+//Header with name 'Email2Value'[0] was not found.
+//Header with name 'Email3Type'[0] was not found.
+//Header with name 'Email3Value'[0] was not found.
+//Header with name 'IM1Type'[0] was not found.
+//Header with name 'IM1Service'[0] was not found.
+//Header with name 'IM1Value'[0] was not found.
+//Header with name 'IM2Type'[0] was not found.
+//Header with name 'IM2Service'[0] was not found.
+//Header with name 'IM2Value'[0] was not found.
+//Header with name 'Phone1Type'[0] was not found.
+//Header with name 'Phone1Value'[0] was not found.
+//Header with name 'Phone2Type'[0] was not found.
+//Header with name 'Phone2Value'[0] was not found.
+//Header with name 'Phone3Type'[0] was not found.
+//Header with name 'Phone3Value'[0] was not found.
+//Header with name 'Address1Type'[0] was not found.
+//Header with name 'Address1Formatted'[0] was not found.
+//Header with name 'Address1Street'[0] was not found.
+//Header with name 'Address1City'[0] was not found.
+//Header with name 'Address1POBox'[0] was not found.
+//Header with name 'Address1Region'[0] was not found.
+//Header with name 'Address1PostalCode'[0] was not found.
+//Header with name 'Address1Country'[0] was not found.
+//Header with name 'Address1ExtendedAddress'[0] was not found.
+//Header with name 'Organization1Type'[0] was not found.
+//Header with name 'Organization1Name'[0] was not found.
+//Header with name 'Organization1YomiName'[0] was not found.
+//Header with name 'Organization1Title'[0] was not found.
+//Header with name 'Organization1Department'[0] was not found.
+//Header with name 'Organization1Symbol'[0] was not found.
+//Header with name 'Organization1Location'[0] was not found.
+//Header with name 'Organization1JobDescription'[0] was not found.
+//Header with name 'Website1Type'[0] was not found.
+//Header with name 'Website1Value'[0] was not found.
+//Header with name 'Website2Type'[0] was not found.
+//Header with name 'Website2Value'[0] was not found.
+//Headers: 'Name', 'Given Name', 'Additional Name', 'Family Name', 'Yomi Name', 'Given Name Yomi', 'Additional Name Yomi', 'Family Name Yomi', 'Name Prefix', 'Name Suffix', 'Initials', 'Nickname', 'Short Name', 'Maiden Name', 'Birthday', 'Gender', 'Location', 'Billing Information', 'Directory Server', 'Mileage', 'Occupation', 'Hobby', 'Sensitivity', 'Priority', 'Subject', 'Notes', 'Language', 'Photo', 'Group Membership', 'E-mail 1 - Type', 'E-mail 1 - Value', 'E-mail 2 - Type', 'E-mail 2 - Value', 'E-mail 3 - Type', 'E-mail 3 - Value', 'IM 1 - Type', 'IM 1 - Service', 'IM 1 - Value', 'IM 2 - Type', 'IM 2 - Service', 'IM 2 - Value', 'Phone 1 - Type', 'Phone 1 - Value', 'Phone 2 - Type', 'Phone 2 - Value', 'Phone 3 - Type', 'Phone 3 - Value', 'Address 1 - Type', 'Address 1 - Formatted', 'Address 1 - Street', 'Address 1 - City', 'Address 1 - PO Box', 'Address 1 - Region', 'Address 1 - Postal Code', 'Address 1 - Country', 'Address 1 - Extended Address', 'Organization 1 - Type', 'Organization 1 - Name', 'Organization 1 - Yomi Name', 'Organization 1 - Title', 'Organization 1 - Department', 'Organization 1 - Symbol', 'Organization 1 - Location', 'Organization 1 - Job Description', 'Website 1 - Type', 'Website 1 - Value', 'Website 2 - Type', 'Website 2 - Value'
+//If you are expecting some headers to be missing and want to ignore this validation, set the configuration HeaderValidated to null. You can also change the functionality to do something else, like logging the issue.
+
+//IReader state:
+//   ColumnCount: 68
+//   CurrentIndex: -1
+//   HeaderRecord:
+//["Name","Given Name","Additional Name","Family Name","Yomi Name","Given Name Yomi","Additional Name Yomi","Family Name Yomi","Name Prefix","Name Suffix","Initials","Nickname","Short Name","Maiden Name","Birthday","Gender","Location","Billing Information","Directory Server","Mileage","Occupation","Hobby","Sensitivity","Priority","Subject","Notes","Language","Photo","Group Membership","E-mail 1 - Type","E-mail 1 - Value","E-mail 2 - Type","E-mail 2 - Value","E-mail 3 - Type","E-mail 3 - Value","IM 1 - Type","IM 1 - Service","IM 1 - Value","IM 2 - Type","IM 2 - Service","IM 2 - Value","Phone 1 - Type","Phone 1 - Value","Phone 2 - Type","Phone 2 - Value","Phone 3 - Type","Phone 3 - Value","Address 1 - Type","Address 1 - Formatted","Address 1 - Street","Address 1 - City","Address 1 - PO Box","Address 1 - Region","Address 1 - Postal Code","Address 1 - Country","Address 1 - Extended Address","Organization 1 - Type","Organization 1 - Name","Organization 1 - Yomi Name","Organization 1 - Title","Organization 1 - Department","Organization 1 - Symbol","Organization 1 - Location","Organization 1 - Job Description","Website 1 - Type","Website 1 - Value","Website 2 - Type","Website 2 - Value"]
+//IParser state:
+//   ByteCount: 0
+//   CharCount: 1060
+//   Row: 1
+//   RawRow: 1
+//   Count: 68
+//   RawRecord:
+//Name,Given Name,Additional Name,Family Name,Yomi Name,Given Name Yomi,Additional Name Yomi,Family Name Yomi,Name Prefix,Name Suffix,Initials,Nickname,Short Name,Maiden Name,Birthday,Gender,Location,Billing Information,Directory Server,Mileage,Occupation,Hobby,Sensitivity,Priority,Subject,Notes,Language,Photo,Group Membership,E-mail 1 - Type,E-mail 1 - Value,E-mail 2 - Type,E-mail 2 - Value,E-mail 3 - Type,E-mail 3 - Value,IM 1 - Type,IM 1 - Service,IM 1 - Value,IM 2 - Type,IM 2 - Service,IM 2 - Value,Phone 1 - Type,Phone 1 - Value,Phone 2 - Type,Phone 2 - Value,Phone 3 - Type,Phone 3 - Value,Address 1 - Type,Address 1 - Formatted,Address 1 - Street,Address 1 - City,Address 1 - PO Box,Address 1 - Region,Address 1 - Postal Code,Address 1 - Country,Address 1 - Extended Address,Organization 1 - Type,Organization 1 - Name,Organization 1 - Yomi Name,Organization 1 - Title,Organization 1 - Department,Organization 1 - Symbol,Organization 1 - Location,Organization 1 - Job Description,Website 1 - Type,Website 1 - Value,Website 2 - Type,Website 2 - Value
+

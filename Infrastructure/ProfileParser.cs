@@ -1,31 +1,43 @@
-﻿public class ProfileParser
+﻿using AutoMapper;
+
+public class ProfileParser
 {
-    const string outputFolder = "";
+    private readonly IMapper _mapper;
 
-    public async Task<string> ParseUploadedProfileAsync(string fileNameOnServer, ProfilesTypes profileType)
+    public ProfileParser(IMapper mapper)
     {
-        switch (profileType)
+        _mapper = mapper;
+    }
+
+    public async Task<IEnumerable<FullProfile>> ParseUploadedProfileAsync(string contentType, string fileName, string fileContent)
+    {
+        if (contentType == "text/csv" && Path.GetExtension(fileName) == ".csv" && fileContent.Length > 3)
         {
-            case ProfilesTypes.Csv01:
-                List<Profile> newProfiles = Csv01ProfileParser.ParseCsv(fileNameOnServer);
+            IEnumerable<ProfileCsv1> csv1Profiles = Csv01ProfileParser.ParseCsv(fileName, fileContent);
+            
+            IEnumerable<FullProfile> dbProfiles = _mapper.Map<IEnumerable<FullProfile>>(csv1Profiles);
 
-                // TODO:
-                // SAVE TO DB !!!!!!!!!!
-                // SAVE TO DB !!!!!!!!!!
-
-
-
-                break;
-            case ProfilesTypes.Csv02:
-                break;
-            case ProfilesTypes.Vcf01:
-                break;
-            case ProfilesTypes.Vcf02:
-                break;
-            default:
-                break;
+            return dbProfiles;
+        }
+        else
+        {
+            throw new NotImplementedException();
         }
 
-        throw new NotImplementedException();
+
+        //switch (profileType)
+        //{
+        //    case ProfilesTypes.Csv01:
+        //        newProfiles = Csv01ProfileParser.ParseCsv(fileNameOnServer);
+        //        break;
+        //    case ProfilesTypes.Csv02:
+        //        throw new NotImplementedException();
+        //    case ProfilesTypes.Vcf01:
+        //        throw new NotImplementedException();
+        //    case ProfilesTypes.Vcf02:
+        //        throw new NotImplementedException();
+        //    default:
+        //        throw new NotImplementedException();
+        //}
     }
 }
