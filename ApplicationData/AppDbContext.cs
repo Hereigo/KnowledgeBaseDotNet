@@ -8,7 +8,4 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<FullProfile> Profiles { get; set; }
-
-    // public DbSet<Vcf01Profile> Vcf01Profiles { get; set; }
-    // public DbSet<Vcf02Profile> Vcf02Profiles { get; set; }
 }

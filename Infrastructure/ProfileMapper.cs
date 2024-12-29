@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace Infrastructure
+﻿namespace Infrastructure
 {
     public class ProfileMapper : AutoMapper.Profile
     {

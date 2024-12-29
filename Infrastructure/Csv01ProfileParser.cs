@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
 using System.Text.Json;
@@ -112,11 +111,11 @@ public class Csv01ProfileParser
             using (var reader = new StringReader(csvString))
             using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                HasHeaderRecord = true, // The first row contains the header
-                Delimiter = ",",       // Comma delimiter (default for CSV)
+                HasHeaderRecord = true,
+                // Delimiter = ",",
                 TrimOptions = TrimOptions.Trim,
-                HeaderValidated = null, // Skip header validation
-                                        // MissingFieldFound = null 
+                // HeaderValidated = null,
+                // MissingFieldFound = null 
             }))
             {
                 csv.Context.RegisterClassMap<ProfileCsv1Map>();

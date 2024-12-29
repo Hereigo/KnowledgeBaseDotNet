@@ -24,7 +24,6 @@ public class ProfileParser
             throw new NotImplementedException();
         }
 
-
         //switch (profileType)
         //{
         //    case ProfilesTypes.Csv01:
