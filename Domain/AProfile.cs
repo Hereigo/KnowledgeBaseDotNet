@@ -2,12 +2,10 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 [Table("Profiles")]
-public class FullProfile
+public class AProfile
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string ID { get; set; }
-
-    public string? AaaType { get; set; }
 
     public DateTime Created { get; set; }
 

@@ -4,7 +4,7 @@
     {
         public ProfileMapper()
         {
-            CreateMap<ProfileCsv1, FullProfile>();
+            CreateMap<ProfileCsv1, AProfile>();
         }
     }
 }

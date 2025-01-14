@@ -7,5 +7,5 @@ public class AppDbContext : DbContext
     {
     }
 
-    public DbSet<FullProfile> Profiles { get; set; }
+    public DbSet<AProfile> Profiles { get; set; }
 }

@@ -53,9 +53,9 @@ namespace WebAppMvc.Controllers
 
                     var profileParser = new ProfileParser(_mapper);
 
-                    IEnumerable<FullProfile> result = await profileParser.ParseUploadedProfileAsync(fileToUpload.ContentType, fileToUpload.FileName, fileContent);
+                    IEnumerable<AProfile> result = await profileParser.ParseUploadedProfileAsync(fileToUpload.ContentType, fileToUpload.FileName, fileContent);
 
-                    foreach (FullProfile profile in result) 
+                    foreach (AProfile profile in result) 
                     {
                         profile.Created = DateTime.Now;
                     }

@@ -31,10 +31,6 @@ body {
     text-decoration: none;
 }
 
-th:first-child {
-    min-width: 6rem;
-}
-
 input {
     margin-bottom: .5rem;
 }

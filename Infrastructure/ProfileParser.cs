@@ -9,13 +9,13 @@ public class ProfileParser
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<FullProfile>> ParseUploadedProfileAsync(string contentType, string fileName, string fileContent)
+    public async Task<IEnumerable<AProfile>> ParseUploadedProfileAsync(string contentType, string fileName, string fileContent)
     {
         if (contentType == "text/csv" && Path.GetExtension(fileName) == ".csv" && fileContent.Length > 3)
         {
             IEnumerable<ProfileCsv1> csv1Profiles = Csv01ProfileParser.ParseCsv(fileName, fileContent);
             
-            IEnumerable<FullProfile> dbProfiles = _mapper.Map<IEnumerable<FullProfile>>(csv1Profiles);
+            IEnumerable<AProfile> dbProfiles = _mapper.Map<IEnumerable<AProfile>>(csv1Profiles);
 
             return dbProfiles;
         }

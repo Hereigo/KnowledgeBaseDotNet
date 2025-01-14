@@ -1,15 +1,38 @@
-﻿@model IEnumerable<FullProfile>
+﻿@model IEnumerable<AProfile>
 
 @{
     ViewData["Title"] = "Index";
+    var counter = 1;
 }
 
 <style>
+    .table {
+        font-size: small;
+    }
+
+    th:first-child {
+        min-width: 2rem;
+        font-size: large;
+    }
+
+    .table > tbody > tr > td:first-child {
+        text-align: center;
+        font-weight: 700;
+    }
+
     .table > thead > tr > th {
         border: 1px lightgrey solid;
         line-height: 1em;
         transform: rotate(180deg);
         writing-mode: vertical-lr;
+    }
+
+    .table > tbody > tr > td {
+        border: solid 1px lightgrey;
+    }
+
+    .table > :not(caption) > * > * {
+        padding: 0;
     }
 </style>
 
@@ -23,12 +46,11 @@
                     &nbsp; &nbsp; &nbsp; <i class="bi bi-slack"></i>
                 </a>
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AaaType)
-            </th>
+            @*             
             <th>
                 @Html.DisplayNameFor(model => model.Created)
-            </th>
+            </th> 
+            *@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -274,6 +296,19 @@
         {
             <tr>
                 <td>
+
+
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="bi-wrapper">
+                        @(counter++)
+                    </a>
+
+
+                    @*                 
+
+                    <a asp-action="Details" asp-route-id="@Model.ID">Details</a>
+
+                </td>
+                <td>
                     <a asp-action="Details" asp-route-id="@item.ProfileID" class="bi-wrapper">
                         <i class="bi bi-card-list"></i>
                     </a>
@@ -284,14 +319,14 @@
                     &nbsp;
                     <a asp-action="Delete" asp-route-id="@item.ProfileID" class="bi-wrapper">
                         <i class="bi bi-trash"></i>
-                    </a>
+                    </a> 
+                    *@
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AaaType)
-                </td>
+                @*                 
                 <td>
                     @Html.DisplayFor(modelItem => item.Created)
-                </td>
+                </td> 
+                *@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
