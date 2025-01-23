@@ -7,6 +7,8 @@ public class AProfile
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string ID { get; set; }
 
+    public bool IsNormal { get; set; }
+
     public DateTime Created { get; set; }
 
     [Column("Name")]

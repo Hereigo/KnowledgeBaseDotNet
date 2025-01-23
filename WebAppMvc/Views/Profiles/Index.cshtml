@@ -32,7 +32,7 @@
     }
 
     .table > :not(caption) > * > * {
-        padding: 0;
+        padding: 0 .05rem;
     }
 </style>
 
@@ -46,11 +46,9 @@
                     &nbsp; &nbsp; &nbsp; <i class="bi bi-slack"></i>
                 </a>
             </th>
-            @*             
             <th>
-                @Html.DisplayNameFor(model => model.Created)
+                @Html.DisplayNameFor(model => model.IsNormal)
             </th> 
-            *@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -322,11 +320,9 @@
                     </a> 
                     *@
                 </td>
-                @*                 
                 <td>
-                    @Html.DisplayFor(modelItem => item.Created)
+                    @Html.DisplayFor(modelItem => item.IsNormal)
                 </td> 
-                *@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
