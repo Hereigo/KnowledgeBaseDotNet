@@ -55,10 +55,26 @@ namespace WebAppMvc.Controllers
 
                     IEnumerable<AProfile> result = await profileParser.ParseUploadedProfileAsync(fileToUpload.ContentType, fileToUpload.FileName, fileContent);
 
-                    foreach (AProfile profile in result) 
+                    foreach (AProfile profile in result)
                     {
                         profile.Created = DateTime.Now;
+
+                        if (string.IsNullOrWhiteSpace(profile.Name) ||
+                            string.IsNullOrWhiteSpace(profile.GivenName) ||
+                            string.IsNullOrWhiteSpace(profile.AdditionalName) ||
+                            string.IsNullOrWhiteSpace(profile.FamilyName))
+                        {
+                            profile.IsBroken = true;
+                        }
                     }
+
+
+                    // TODO:
+                    // Check for Empty Names and Phones...
+                    // Check for Already existed records!
+
+                    throw new NotImplementedException();
+
 
                     _appDbContext.Profiles.AddRange(result);
                     _appDbContext.SaveChanges();

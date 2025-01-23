@@ -1,5 +1,6 @@
 html {
     font-size: 14px;
+    font-family: 'Merriweather Sans', Tahoma;
 }
 
 @media (min-width: 768px) {

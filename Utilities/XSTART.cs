@@ -27,6 +27,7 @@ switch (yourSelect)
         break;
     case 2:
         // VcfProfileParser.TestVcfParsing(fileVcf, workDirTemp);
+        Console.WriteLine("Nothig to do.");
         break;
     case 3:
         Csv01ProfileParser.CsvParseToFolder(fileCsv, workDirTemp);
