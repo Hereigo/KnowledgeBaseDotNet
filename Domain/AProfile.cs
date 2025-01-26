@@ -27,21 +27,21 @@ public class AProfile
     [DisplayName("Family Name")]
     public string? FamilyName { get; set; }
 
-    [Column("YomiName")]
-    [DisplayName("Yomi Name")]
-    public string? YomiName { get; set; }
+    //[Column("YomiName")]
+    //[DisplayName("Yomi Name")]
+    //public string? YomiName { get; set; }
 
-    [Column("GivenNameYomi")]
-    [DisplayName("Given Name Yomi")]
-    public string? GivenNameYomi { get; set; }
+    //[Column("GivenNameYomi")]
+    //[DisplayName("Given Name Yomi")]
+    //public string? GivenNameYomi { get; set; }
 
-    [Column("AdditionalNameYomi")]
-    [DisplayName("Additional Name Yomi")]
-    public string? AdditionalNameYomi { get; set; }
+    //[Column("AdditionalNameYomi")]
+    //[DisplayName("Add Name Yomi")]
+    //public string? AdditionalNameYomi { get; set; }
 
-    [Column("FamilyNameYomi")]
-    [DisplayName("Family Name Yomi")]
-    public string? FamilyNameYomi { get; set; }
+    //[Column("FamilyNameYomi")]
+    //[DisplayName("Family Name Yomi")]
+    //public string? FamilyNameYomi { get; set; }
 
     [Column("NamePrefix")]
     [DisplayName("Name Prefix")]
@@ -80,11 +80,11 @@ public class AProfile
     public string? Location { get; set; }
 
     [Column("BillingInformation")]
-    [DisplayName("Billing Information")]
+    [DisplayName("Billing Info")]
     public string? BillingInformation { get; set; }
 
     [Column("DirectoryServer")]
-    [DisplayName("Directory Server")]
+    [DisplayName("Directory Srv")]
     public string? DirectoryServer { get; set; }
 
     [Column("Mileage")]
@@ -200,71 +200,71 @@ public class AProfile
     public string? Phone3Value { get; set; }
 
     [Column("Address1Type")]
-    [DisplayName("Address 1 - Type")]
+    [DisplayName("Addr 1 - Type")]
     public string? Address1Type { get; set; }
 
     [Column("Address1Formatted")]
-    [DisplayName("Address 1 - Formatted")]
+    [DisplayName("Addr 1 - Formatted")]
     public string? Address1Formatted { get; set; }
 
     [Column("Address1Street")]
-    [DisplayName("Address 1 - Street")]
+    [DisplayName("Addr 1 - Street")]
     public string? Address1Street { get; set; }
 
     [Column("Address1City")]
-    [DisplayName("Address 1 - City")]
+    [DisplayName("Addr 1 - City")]
     public string? Address1City { get; set; }
 
     [Column("Address1POBox")]
-    [DisplayName("Address 1 - PO Box")]
+    [DisplayName("Addr 1 - PO Box")]
     public string? Address1POBox { get; set; }
 
     [Column("Address1Region")]
-    [DisplayName("Address 1 - Region")]
+    [DisplayName("Addr 1 - Region")]
     public string? Address1Region { get; set; }
 
     [Column("Address1PostalCode")]
-    [DisplayName("Address 1 - Postal Code")]
+    [DisplayName("Addr 1 - Post Code")]
     public string? Address1PostalCode { get; set; }
 
     [Column("Address1Country")]
-    [DisplayName("Address 1 - Country")]
+    [DisplayName("Addr 1 - Country")]
     public string? Address1Country { get; set; }
 
     [Column("Address1ExtendedAddress")]
-    [DisplayName("Address1Extended Address")]
+    [DisplayName("Addr 1 Extend")]
     public string? Address1ExtendedAddress { get; set; }
 
     [Column("Organization1Type")]
-    [DisplayName("Organization 1 - Type")]
+    [DisplayName("Org 1 - Type")]
     public string? Organization1Type { get; set; }
 
     [Column("Organization1Name")]
-    [DisplayName("Organization 1 - Name")]
+    [DisplayName("Org 1 - Name")]
     public string? Organization1Name { get; set; }
 
     [Column("Organization1YomiName")]
-    [DisplayName("Organization 1 - Yomi Name")]
+    [DisplayName("Org 1 - Yomi Name")]
     public string? Organization1YomiName { get; set; }
 
     [Column("Organization1Title")]
-    [DisplayName("Organization 1 - Title")]
+    [DisplayName("Org 1 - Title")]
     public string? Organization1Title { get; set; }
 
     [Column("Organization1Department")]
-    [DisplayName("Organization 1 - Department")]
+    [DisplayName("Org 1 - Department")]
     public string? Organization1Department { get; set; }
 
     [Column("Organization1Symbol")]
-    [DisplayName("Organization 1 - Symbol")]
+    [DisplayName("Org 1 - Symbol")]
     public string? Organization1Symbol { get; set; }
 
     [Column("Organization1Location")]
-    [DisplayName("Organization 1 - Location")]
+    [DisplayName("Org 1 - Location")]
     public string? Organization1Location { get; set; }
 
     [Column("OrganizationJobDescription")]
-    [DisplayName("Organization 1 - Job Description")]
+    [DisplayName("Org 1 - Job Descrip")]
     public string? Organization1JobDescription { get; set; }
 
     [Column("Website1Type")]

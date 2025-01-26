@@ -1,4 +1,4 @@
-﻿public partial class Profile
+﻿public partial class ProfileVcf1
 {
     public string Categories { get; set; }
 

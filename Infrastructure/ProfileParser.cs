@@ -11,18 +11,23 @@ public class ProfileParser
 
     public async Task<IEnumerable<AProfile>> ParseUploadedProfileAsync(string contentType, string fileName, string fileContent)
     {
+        IEnumerable<AProfile> dbProfiles;
+
         if (contentType == "text/csv" && Path.GetExtension(fileName) == ".csv" && fileContent.Length > 3)
         {
             IEnumerable<ProfileCsv1> csv1Profiles = Csv01ProfileParser.ParseCsv(fileName, fileContent);
-            
-            IEnumerable<AProfile> dbProfiles = _mapper.Map<IEnumerable<AProfile>>(csv1Profiles);
-
-            return dbProfiles;
+            dbProfiles = _mapper.Map<IEnumerable<AProfile>>(csv1Profiles);
+        }
+        else if (contentType == "text/vcf" && Path.GetExtension(fileName) == ".vcf" && fileContent.Length > 3)
+        {
+            dbProfiles = Vcf01ProfileParser.ParseVcfFile(fileName, fileContent);
         }
         else
         {
             throw new NotImplementedException();
         }
+
+        return dbProfiles;
 
         //switch (profileType)
         //{

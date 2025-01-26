@@ -73,7 +73,7 @@ namespace WebAppMvc.Controllers
                         // Check for Empty Names and Phones...
                         // Check for Already existed records!
 
-                        throw new NotImplementedException();
+                        //throw new NotImplementedException();
 
                         _appDbContext.Profiles.AddRange(result);
                         _appDbContext.SaveChanges();
@@ -92,7 +92,7 @@ namespace WebAppMvc.Controllers
         {
             return _appDbContext.Profiles.Any(item =>
             (string.IsNullOrEmpty(item.AdditionalName) ? string.IsNullOrEmpty(newItem.AdditionalName) : item.AdditionalName == newItem.AdditionalName) &&
-            (string.IsNullOrEmpty(item.AdditionalNameYomi) ? string.IsNullOrEmpty(newItem.AdditionalNameYomi) : item.AdditionalNameYomi == newItem.AdditionalNameYomi) &&
+            //(string.IsNullOrEmpty(item.AdditionalNameYomi) ? string.IsNullOrEmpty(newItem.AdditionalNameYomi) : item.AdditionalNameYomi == newItem.AdditionalNameYomi) &&
             (string.IsNullOrEmpty(item.Address1City) ? string.IsNullOrEmpty(newItem.Address1City) : item.Address1City == newItem.Address1City) &&
             (string.IsNullOrEmpty(item.Address1Country) ? string.IsNullOrEmpty(newItem.Address1Country) : item.Address1Country == newItem.Address1Country) &&
             (string.IsNullOrEmpty(item.Address1ExtendedAddress) ? string.IsNullOrEmpty(newItem.Address1ExtendedAddress) : item.Address1ExtendedAddress == newItem.Address1ExtendedAddress) &&
@@ -117,12 +117,12 @@ namespace WebAppMvc.Controllers
             (string.IsNullOrEmpty(item.Event1Type) ? string.IsNullOrEmpty(newItem.Event1Type) : item.Event1Type == newItem.Event1Type) &&
             (string.IsNullOrEmpty(item.Event1Value) ? string.IsNullOrEmpty(newItem.Event1Value) : item.Event1Value == newItem.Event1Value) &&
             (string.IsNullOrEmpty(item.FamilyName) ? string.IsNullOrEmpty(newItem.FamilyName) : item.FamilyName == newItem.FamilyName) &&
-            (string.IsNullOrEmpty(item.FamilyNameYomi) ? string.IsNullOrEmpty(newItem.FamilyNameYomi) : item.FamilyNameYomi == newItem.FamilyNameYomi) &&
+            //(string.IsNullOrEmpty(item.FamilyNameYomi) ? string.IsNullOrEmpty(newItem.FamilyNameYomi) : item.FamilyNameYomi == newItem.FamilyNameYomi) &&
             (string.IsNullOrEmpty(item.FileUploaded) ? string.IsNullOrEmpty(newItem.FileUploaded) : item.FileUploaded == newItem.FileUploaded) &&
             (string.IsNullOrEmpty(item.FullName) ? string.IsNullOrEmpty(newItem.FullName) : item.FullName == newItem.FullName) &&
             (string.IsNullOrEmpty(item.Gender) ? string.IsNullOrEmpty(newItem.Gender) : item.Gender == newItem.Gender) &&
             (string.IsNullOrEmpty(item.GivenName) ? string.IsNullOrEmpty(newItem.GivenName) : item.GivenName == newItem.GivenName) &&
-            (string.IsNullOrEmpty(item.GivenNameYomi) ? string.IsNullOrEmpty(newItem.GivenNameYomi) : item.GivenNameYomi == newItem.GivenNameYomi) &&
+            //(string.IsNullOrEmpty(item.GivenNameYomi) ? string.IsNullOrEmpty(newItem.GivenNameYomi) : item.GivenNameYomi == newItem.GivenNameYomi) &&
             (string.IsNullOrEmpty(item.Group) ? string.IsNullOrEmpty(newItem.Group) : item.Group == newItem.Group) &&
             (string.IsNullOrEmpty(item.GroupMembership) ? string.IsNullOrEmpty(newItem.GroupMembership) : item.GroupMembership == newItem.GroupMembership) &&
             (string.IsNullOrEmpty(item.Hobby) ? string.IsNullOrEmpty(newItem.Hobby) : item.Hobby == newItem.Hobby) &&
@@ -168,8 +168,10 @@ namespace WebAppMvc.Controllers
             (string.IsNullOrEmpty(item.Website1Type) ? string.IsNullOrEmpty(newItem.Website1Type) : item.Website1Type == newItem.Website1Type) &&
             (string.IsNullOrEmpty(item.Website1Value) ? string.IsNullOrEmpty(newItem.Website1Value) : item.Website1Value == newItem.Website1Value) &&
             (string.IsNullOrEmpty(item.Website2Type) ? string.IsNullOrEmpty(newItem.Website2Type) : item.Website2Type == newItem.Website2Type) &&
-            (string.IsNullOrEmpty(item.Website2Value) ? string.IsNullOrEmpty(newItem.Website2Value) : item.Website2Value == newItem.Website2Value) &&
-            (string.IsNullOrEmpty(item.YomiName) ? string.IsNullOrEmpty(newItem.YomiName) : item.YomiName == newItem.YomiName));
+            (string.IsNullOrEmpty(item.Website2Value) ? string.IsNullOrEmpty(newItem.Website2Value) : item.Website2Value == newItem.Website2Value) 
+            // &&
+            //(string.IsNullOrEmpty(item.YomiName) ? string.IsNullOrEmpty(newItem.YomiName) : item.YomiName == newItem.YomiName)
+            );
         }
 
         public IActionResult Privacy()
