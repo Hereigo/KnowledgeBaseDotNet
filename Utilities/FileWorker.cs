@@ -1,6 +1,6 @@
 ﻿using System.IO.Compression;
 using Infrastructure;
-using Microsoft.VisualBasic.FileIO;
+using Microsoft.VisualBasic.FileIO; // To Send to Recycle Bin.
 
 namespace Utilities
 {
