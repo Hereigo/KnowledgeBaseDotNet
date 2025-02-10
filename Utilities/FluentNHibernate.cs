@@ -22,7 +22,7 @@ public class DbEntityMap : ClassMap<SomeDbEntity>
     }
 }
 
-internal class TEST_IT
+public class TEST_RUN
 {
     static void Main(string[] args)
     {
