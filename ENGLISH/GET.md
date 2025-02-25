@@ -3,12 +3,12 @@
 
 |             GET using               |    Meaning       |
 | ----------------------------------- | ------------ |
-| GET in touch                        | Зв'язатися із ... |
+| GET IN TOUCH                        | Зв'язатися із ... |
 | GET bored                           | Знудитися |
-| I don't GET this exercise           | Не розуміти |
-| GET rid of                          | Позбутися від ... |
-| GET to know smb.                    | Познайомитися поближче із ... |
-| GET to the station                  | Прибути до станції |
-| The door bell ringing. I'll GET it. | Я відкрию (візьму це на себе) |
-| GET used to do smth.                | Призвичаїтися робити щось |
-| GET on with it                      | Продовжити щось |
+| I DON'T GET THIS exercise           | Не розуміти |
+| GET RID OF                          | Позбутися від ... |
+| GET TO KNOW smb.                    | Познайомитися поближче із ... |
+| GET TO the station                  | Прибути до станції |
+| The door bell ringing. I'LL GET IT. | Я відкрию (візьму це на себе) |
+| GET USED TO do smth.                | Призвичаїтися робити щось |
+| GET ON WITH it                      | Продовжити щось |

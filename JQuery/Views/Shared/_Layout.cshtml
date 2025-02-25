@@ -35,15 +35,15 @@
     <br />
     <br />
     <div class="container body-content">
+
         @RenderBody()
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 
-    <script src="~/js/bootstrap-3.4.1.min.js"></script>
-    <script src="~/js/bootstrap-datepicker-1.10.0.min.js"></script>
     <script src="~/js/jquery-3.7.1.min.js"></script>
     <script src="~/js/jquery-migrate-3.5.2.min.js"></script>
     <script src="~/js/jquery.form-4.3.0.min.js"></script>
@@ -51,6 +51,8 @@
     <script src="~/js/jquery.unobtrusive-ajax-3.2.6.min.js"></script>
     <script src="~/js/jquery.validate-1.21.0.min.js"></script>
     <script src="~/js/jquery.validate.unobtrusive-4.0.0.min.js"></script>
+    <script src="~/js/bootstrap-3.4.1.min.js"></script>
+    <script src="~/js/bootstrap-datepicker-1.10.0.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 

@@ -19,7 +19,7 @@ namespace JQuery.Controllers
         }
 
         [HttpPost]
-        public IActionResult Comment(string name, string comment)
+        public IActionResult Comment(string name, string comment, string date)
         {
             return View("Index");
         }

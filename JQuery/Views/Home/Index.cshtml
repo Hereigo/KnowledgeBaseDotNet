@@ -2,6 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    label {
+        margin-left: 20px;
+    }
+
+    #datepicker {
+        width: 180px;
+    }
+
+        #datepicker > span:hover {
+            cursor: pointer;
+        }
+</style>
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -10,28 +24,48 @@
 <h3>jquery-form test</h3>
 
 <div>
-    <form id="myForm" asp-controller="Home" asp-action="Comment" method="POST">
+    <form id="myForm" asp-action="Comment" method="POST">
         TheName: <input type="text" name="name">
         <br /><br />
         Comment: <textarea name="comment"></textarea>
         <br /><br />
-        <input type="submit" value="Submit Comment">
+        Started: <input type="date" name="date1" />
+        <br /><br />
+        Finished:
+        <div id="datepicker"
+             class="input-group date"
+             data-date-format="mm-dd-yyyy">
+            <input class="form-control" type="text" readonly />
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+        </div>
+        <br /><br />
+        <input type="submit" value="Submit">
     </form>
 </div>
 
 @section scripts {
     <script>
-        @*  
-        $(function() {
-          // bind 'myForm' and provide a simple callback function
-          $('#myForm').ajaxForm(function() {
-              alert("Thank you for your comment!");
-          });
-        }); *@
 
-        $('#myForm').on('submit', function(event) {
-            alert("Thank you for your comment!");
+        $(function() {
+
+            // bind 'myForm' and provide a simple callback function
+            $('#myForm').ajaxForm(function() {
+                alert("Thank you for your comment!");
+            });
+
+            // $('#myForm').on('submit', function(event) {
+            //     alert("Thank you for your comment!");
+            // });
+
+            $("#datepicker").datepicker({
+                autoclose: true,
+                todayHighlight: true,
+            }).datepicker('update', new Date());
+
         });
+
     </script>
 
 }
