@@ -7,7 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlite(builder.Configuration.GetConnectionString("ApplicationDB")));
 
-builder.Services.AddAutoMapper(typeof(ProfileMapper)); 
+builder.Services.AddAutoMapper(cfg => { }, typeof(ProfileMapper));
 
 var app = builder.Build();
 
